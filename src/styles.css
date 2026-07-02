@@ -1,0 +1,116 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "General Sans", system-ui, sans-serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+  --radius-4xl: calc(var(--radius) + 24px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-gold-soft: var(--gold-soft);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+
+  --shadow-toon: 0 6px 0 0 var(--ink);
+  --shadow-toon-sm: 0 3px 0 0 var(--ink);
+  --shadow-glow: 0 0 0 6px color-mix(in oklab, var(--gold) 35%, transparent), 0 12px 40px -8px color-mix(in oklab, var(--gold-deep) 50%, transparent);
+}
+
+:root {
+  --radius: 1rem;
+  /* Light cream + gold palette */
+  --background: oklch(0.985 0.012 90);          /* #FFFCF3 cream */
+  --cream: oklch(0.985 0.012 90);
+  --foreground: oklch(0.22 0.03 60);            /* dark warm ink */
+  --ink: oklch(0.22 0.03 60);
+
+  --gold: oklch(0.78 0.14 80);                  /* warm gold */
+  --gold-deep: oklch(0.62 0.13 65);             /* deep gold */
+  --gold-soft: oklch(0.94 0.05 85);             /* whisper gold */
+
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--foreground);
+
+  --primary: var(--gold-deep);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: var(--gold-soft);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.96 0.015 85);
+  --muted-foreground: oklch(0.45 0.025 60);
+  --accent: var(--gold);
+  --accent-foreground: oklch(1 0 0);
+
+  --destructive: oklch(0.6 0.21 25);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.88 0.03 80);
+  --input: oklch(0.92 0.025 80);
+  --ring: var(--gold);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.01em; }
+}
+
+/* Decorative cartoon backdrop */
+@utility bg-toon {
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(circle at 20% 15%, color-mix(in oklab, var(--gold-soft) 90%, transparent) 0, transparent 35%),
+    radial-gradient(circle at 85% 10%, color-mix(in oklab, var(--gold-soft) 70%, transparent) 0, transparent 30%),
+    radial-gradient(circle at 70% 90%, color-mix(in oklab, var(--gold-soft) 80%, transparent) 0, transparent 35%);
+}
+
+@utility toon-card {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-toon);
+}
+
+@utility toon-chip {
+  background: var(--gold-soft);
+  border: 2px solid var(--ink);
+  border-radius: 9999px;
+  box-shadow: var(--shadow-toon-sm);
+}
