@@ -98,9 +98,9 @@ function WhatIsViso() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: i * 0.08, type: "spring", stiffness: 180, damping: 20 }}
               whileHover={{ y: -6 }}
-              className="toon-card relative h-full overflow-hidden p-6"
+              className="toon-card group relative h-full overflow-hidden p-6"
             >
-              <div className="pointer-events-none absolute -right-4 -top-6 font-display text-7xl font-bold text-[var(--gold-soft)]">
+              <div className="pointer-events-none absolute right-2 top-2 font-display text-6xl font-bold text-[#D89A2B]/20 transition-all group-hover:text-[#D89A2B]/40 group-hover:scale-110 origin-top-right">
                 {s.n}
               </div>
               <div className="relative">

@@ -36,9 +36,9 @@ export default function Clients() {
               whileHover={{ y: -6, rotate: 1.2, scale: 1.03 }}
               className="toon-card group flex flex-col items-start gap-3 p-5 transition-shadow hover:shadow-glow"
             >
-              <div className="grid h-14 w-14 place-items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--gold-soft)] text-3xl shadow-toon-sm transition-transform group-hover:rotate-6 overflow-hidden bg-white">
+              <div className="grid h-14 w-14 place-items-center rounded-2xl border-2 border-[var(--ink)] bg-white text-3xl shadow-toon-sm transition-transform group-hover:rotate-6 overflow-hidden">
                 {c.logoUrl ? (
-                  <img src={c.logoUrl} alt={`${c.name} logo`} className="w-full h-full object-cover" />
+                  <img src={c.logoUrl} alt={`${c.name} logo`} className="w-full h-full object-contain p-1.5" />
                 ) : (
                   <span aria-hidden>{c.icon}</span>
                 )}
